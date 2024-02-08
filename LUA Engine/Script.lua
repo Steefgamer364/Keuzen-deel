@@ -13,8 +13,17 @@ hasSpell = false;
 castSpellLib = false;
 
 function story(aName)
+
+    
     if(aName == "start") then
-        playMusic("background.wav")
+        CLS()
+        createTextfield("Escape the Pornhouse \nA game made by some weird idiot.")
+        setBackground("Title.JPG")
+        createButton("Begin", "Start")
+    end
+    if(aName == "Begin") then
+        CLS()
+        playMusic("Title.wav")
         setBackground("Ball.JPG")
         createTextfield("You stole a Snickers bar and got sentenced to the \nPORN HOUSE. You have arrived at the house, what will you do?")
         createButton("exit", "Run away from the porn house, your existence is not worth it.")
@@ -46,7 +55,6 @@ function story(aName)
     end
     if(aName == "searchBooks") then
         CLS();
-        playSound("pageFlip.wav")
         createTextfield("You joined Uncle Jim, you feel power surge through your veins.")
         createButton("entrance", "You go back to the main hall")
         hasSpell = true;
@@ -77,18 +85,82 @@ function story(aName)
         playSound("Badtobone.wav")
         if(hasSpell == true and castSpellLib == true) then
             setBackground("Adolfin.jpg")
+            playSound("Skibidi.WAV")
             createTextfield("You drank my home made sauce, haha!")
-            createButton("exit", "You drank the sauce, why wasn't it milkshake?")
+            createButton("Pain", "You drank the sauce, why wasn't it milkshake?")
         else
             setBackground("Joebiden.jpg")
             createTextfield("SODAAAAAAAAAAAAAA!!!!!!!!")
-            createButton("exit", "Hit the griddy old school style.")
+            createButton("Flashback", "Hit the griddy old school style.")
             playSound("soda.wav")
         end
     end
+    if (aName == "Flashback") then
+        CLS()
+        setBackground("")
+        createTextfield("Flashback...")
+        createButton("court", "...")
+        end
+    if (aName == "court") then
+        CLS()
+        setBackground("Court.JPG")
+        createTextfield("You are accused of stealing a Snickers bar from Target. \nHow do you plead?")
+            createButton("Guilty", "I am guilty of this.")
+            createButton("Notguilty", "Nu uh.")
+        end
+        
+        if (aName == "Notguilty") then
+        CLS()
+        playSound("Pipe.WAV")
+        createTextfield("Yu huh, you will now be sentenced to two hours in \nTHE PORN HOUSE.")
+        createButton("Yikes", "DEAR GOD NO")
+    end
+           if (aName == "Guilty") then
+                CLS()
+                playSound("Pipe.WAV")
+                createTextfield("You will now be sentenced to 2 hours in the PORN HOUSE.")
+                createButton("Yikes", "DEAR GOD NO")
+            end
+
+            if (aName == "Yikes") then
+                CLS()
+                createTextfield("It's either that or sit in a quiet room \nwith a man eating a banana with the peel.")
+                createButton("Okay", "I'll take it over the pornhouse...")
+                createButton("No", "THE PORNHOUSE, I'LL TAKE THE PORNHOUSE.")
+            end
+            if (aName == "Okay") then
+                CLS()
+                setBackground("Room.JPG")
+                playSound("Banana.WAV")
+                createButton("Pain", "...")
+            end
+            if (aName == "Pain") then
+            exitGame()
+            end
+
+
+            if(aName == "No") then
+                CLS()
+                createTextfield("Off to the porn house with you.")
+                local x = os.clock()
+                local del = 1000
+                local d = x
+                while d - x > del do
+                    d = os.clock()
+                end
+                exitGame()
+            end
+
     if(aName == "exit") then
+        CLS()
         setBackground("Drone.jpg") -- Change this to the path of your new image
-        exitGame();
-		playSound("Explosion.wav")
+        playSound("Explosion.wav")
+        local x = os.clock()
+        local del = 1000
+        local d = x
+        while d - x > del do
+            d = os.clock()
+        end
+        exitGame()
     end
 end
